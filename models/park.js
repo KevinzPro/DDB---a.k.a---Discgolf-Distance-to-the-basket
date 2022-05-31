@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+
+// gives park propertys
 const park = new mongoose.Schema({
     name: {
         required: true,

@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 //Post Method
-router.post('/park', async (req, res) => {
+router.post('/parks', async (req, res) => {
     const data = new Model({
         name: req.body.name,
         address: req.body.address,
@@ -23,7 +23,7 @@ router.post('/park', async (req, res) => {
 })
 
 //Get all Method
-router.get('/getAll', async (req, res) => {
+router.get('/parks', async (req, res) => {
     try {
         const data = await Model.find();
         res.json(data)
@@ -34,7 +34,7 @@ router.get('/getAll', async (req, res) => {
 })
 
 //Get by ID Method
-router.get('/getOne/:id', async (req, res) => {
+router.get('/parks/:id', async (req, res) => {
     try {
         const data = await Model.findById(req.params.id);
         res.json(data)
@@ -45,7 +45,7 @@ router.get('/getOne/:id', async (req, res) => {
 })
 
 //Update by ID Method
-router.patch('/update/:id', async (req, res) => {
+router.patch('/parks/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const updatedData = req.body;
@@ -62,11 +62,11 @@ router.patch('/update/:id', async (req, res) => {
     }
 })
 
-//Delete by ID Method
-router.delete('/delete/:id', async (req, res) => {
+//Delete by Name Method
+router.delete('/parks/:name', async (req, res) => {
     try {
-        const id = req.params.id;
-        const data = await Model.findByIdAndDelete(id)
+        const name = req.params.name;
+        const data = await Model.findOneAndDelete(name)
         res.send(`Document with ${data.name} has been deleted..`)
     }
     catch (error) {
@@ -75,3 +75,5 @@ router.delete('/delete/:id', async (req, res) => {
 })
 
 module.exports = router;
+
+// works you can give new 
