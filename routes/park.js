@@ -62,12 +62,12 @@ router.patch('/parks/:id', async (req, res) => {
     }
 })
 
-//Delete by Name Method
-router.delete('/parks/:name', async (req, res) => {
+//Delete by id Method
+router.delete('/parks/:id', async (req, res) => {
     try {
-        const name = req.params.name;
-        const data = await Model.findOneAndDelete(name)
-        res.send(`Document with ${data.name} has been deleted..`)
+        const id = req.params.id;
+        const data = await Model.findByIdAndDelete(id)
+        res.send(`Document with ${data.id} has been deleted..`)
     }
     catch (error) {
         res.status(400).json({ message: error.message })
@@ -75,5 +75,3 @@ router.delete('/parks/:name', async (req, res) => {
 })
 
 module.exports = router;
-
-// works you can give new 

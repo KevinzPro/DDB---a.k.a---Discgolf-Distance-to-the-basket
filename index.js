@@ -18,9 +18,9 @@ const app = express();
 app.use(cors())
 app.use(express.json());
 
-const routes = require('./routes/park');
+const parkroute = require('./routes/park');
 
-app.use('/api', routes)
+app.use('/', parkroute)
 
 app.listen(3000, () => {
     console.log(`Server Started at ${3000}`)
