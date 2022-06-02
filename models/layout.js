@@ -9,6 +9,10 @@ const layoutSchema = new mongoose.Schema({
     },
     park_id:{
         type: ObjectId
+    },
+    description:{
+        required: true,
+        type: String
     }
 })
 

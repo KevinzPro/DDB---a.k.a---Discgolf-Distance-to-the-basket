@@ -9,7 +9,23 @@ const basketSchema = new mongoose.Schema({
     },
     layout_id:{
         type: ObjectId
+    },
+    basketnumber: {
+        required: true,
+        type: Number
+    },
+    BAR:{
+        required: true,
+        type: Number
+    },
+    distanceToBasket:{
+        required: true,
+        type: Number
+    },
+    coordinates:{
+        required: true,
+        type: Number
     }
 })
 
-module.exports = mongoose.model('baket', basketSchema)
+module.exports = mongoose.model('basket', basketSchema)

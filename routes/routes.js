@@ -8,7 +8,9 @@ const router = express.Router();
 router.post('/park', async (req, res) => {
     const data = new Model({
         name: req.body.name,
-        age: req.body.age
+        address: req.body.address,
+        cordinets: req.body.cordinets,
+        info: req.body.info
     })
 
     try {
@@ -98,7 +100,8 @@ router.post('/park/:parkId/layout', async (req, res) => {
     const id = req.params.parkId;
     const data = new layoutmodel({
         name: req.body.name,
-        park_id: id
+        park_id: id,
+        description: req.body.description
     })
 
     try {
@@ -179,7 +182,11 @@ router.post('/park/:parkId/layout/:layoutid/basket', async (req, res) => {
     const id = req.params.layoutid;
     const data = new basketmodel({
         name: req.body.name,
-        layout_id: id
+        layout_id: id,
+        basketnumber: req.body.basketnumber,
+        BAR : req.body.BAR,
+        distanceToBasket : req.body.distanceToBasket,
+        coordinates : req.body.coordinates
     })
 
     try {
@@ -222,9 +229,9 @@ router.delete('/park/:parkId/layout/:layoutId/basket/:basketId', async (req, res
 })
 
 //Get by ID Method
-router.get('/park/:parkId/layout/:layoutId/basket/:baskettId', async (req, res) => {
+router.get('/park/:parkId/layout/:layoutId/basket/:basketId', async (req, res) => {
     try {
-        const data = await basketmodel.findById(req.params.baskettId);
+        const data = await basketmodel.findById(req.params.basketId);
         res.json(data)
     }
     catch (error) {
