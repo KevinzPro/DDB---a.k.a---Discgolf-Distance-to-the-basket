@@ -22,6 +22,7 @@ const basketSchema = new mongoose.Schema({
         required: true,
         type: Number
     },
+    
     cordinates:{
         required: true,
         type: Number

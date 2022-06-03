@@ -177,6 +177,7 @@ router.get('/park/:parkId/layout/:layoutId/basket', async (req, res) => {
 })
 
 
+
 //Post method
 router.post('/park/:parkId/layout/:layoutid/basket', async (req, res) => {
     const id = req.params.layoutid;

@@ -13,6 +13,7 @@ const parkSchema = new mongoose.Schema({
         required: true,
         type: Number
     },
+    
     info: {
         required: true,
         type: String
