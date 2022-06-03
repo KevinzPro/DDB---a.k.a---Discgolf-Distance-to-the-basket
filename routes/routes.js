@@ -186,7 +186,7 @@ router.post('/park/:parkId/layout/:layoutid/basket', async (req, res) => {
         basketnumber: req.body.basketnumber,
         BAR : req.body.BAR,
         distanceToBasket : req.body.distanceToBasket,
-        coordinates : req.body.coordinates
+        cordinates : req.body.cordinates
     })
 
     try {
