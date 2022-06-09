@@ -15,4 +15,8 @@ const userSchema = new mongoose.Schema({
         required: true,
         type: String
     }
-})
+});
+
+userSchema.methods.comparePassword = (password, hashPassword) => {
+    return bcrypt.compareSync(password, hashPassword);
+}
